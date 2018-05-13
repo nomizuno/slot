@@ -4,72 +4,52 @@
   var panels = document.getElementsByClassName('panel');
   var spin = document.getElementById('spin');
 
-  var cards = [
-    'seven.png',
-    'bell.png',
-    'cherry.png'
-  ];
-
   var timers = [];
-
   var stopCount = 0;
 
-  function runSlot(n) {
-    timers[n] = setTimeout(function() {
-      panels[n].children[0].src =
-       'img/' +
-       cards[Math.floor(Math.random() * cards.length)];
-       runSlot(n);
-    }, 50);
-  }
+  var cards = [
+    ['豊満な肢体の','ほとばしる情念の','吐出する情欲の','鮮やかな桃色の','粘膜同士の'],
 
-  function initPanel() {
+    ['谷間からこぼれ落ちる','禁じられた','許されざる','アワビのような','蜜のような'],
+
+    ['確定拠出年金','大殺界','西洋哲学','中性脂肪','学歴社会','縄文土器','敷金・礼金','コールオプション','東証一部上場企業',
+      '眼精疲労','新卒一括採用']
+  ];
+
+
+  function runSlot(n) {
+    timers[n] = setTimeout(function(){
+    panels[n].innerHTML = cards[n][Math.floor(Math.random() * cards[n].length)];
+    runSlot(n);
+  },20);
+}
+
+  function initPanel(){
     var i;
-    for (i = 0; i < panels.length; i++) {
-      panels[i].children[1].addEventListener('click', function() {
-        if (this.className.indexOf('inactive') !== -1) {
-          return;
-        }
+    for (i=0; i< panels.length; i++){
+    panels[i].addEventListener('click',function(){
         clearTimeout(timers[this.dataset.index]);
         stopCount++;
-        this.className = 'stop inactive';
+        this.className = 'panel';
         if (stopCount === panels.length) {
           stopCount = 0;
-          checkResults();
+          // checkResults();
           spin.className = '';
         }
       });
     }
   }
-
-  function checkResults() {
-    var img0 = panels[0].children[0];
-    var img1 = panels[1].children[0];
-    var img2 = panels[2].children[0];
-
-    if (img0.src !== img1.src && img0.src !== img2.src) {
-      img0.className = 'unmatched';
-    }
-    if (img1.src !== img0.src && img1.src !== img2.src) {
-      img1.className = 'unmatched';
-    }
-    if (img2.src !== img0.src && img2.src !== img1.src) {
-      img2.className = 'unmatched';
-    }
-  }
-
   initPanel();
 
   spin.addEventListener('click', function() {
-    var i;
-    if (this.className.indexOf('inactive') !== -1) {
-      return;
-    }
+    runSlot(0);
+    runSlot(1);
+    runSlot(2);
     this.className = 'inactive';
-    for (i = 0; i < panels.length; i++) {
-      runSlot(i);
-      panels[i].children[0].className = '';
-      panels[i].children[1].className = 'stop';
-    }
-  });
-})();
+    panels[0].className = "panel inactive"
+    panels[1].className = "panel inactive"
+    panels[2].className = "panel inactive"
+    
+  })();
+
+  })();
