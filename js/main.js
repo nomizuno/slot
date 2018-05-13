@@ -5,13 +5,15 @@
   var spin = document.getElementById('spin');
 
   var timers = [];
+  var stopCount = 0;
 
   var cards = [
     ['豊満な肢体の','ほとばしる情念の','吐出する情欲の','鮮やかな桃色の','粘膜同士の'],
 
-    ['谷間からこぼれ落ちる','禁じられた','許されざる','権化のような','蜜のような'],
+    ['谷間からこぼれ落ちる','禁じられた','許されざる','アワビのような','蜜のような'],
 
-    ['確定拠出年金','大殺界','テキサスホールデム','中性脂肪','学歴社会','縄文土器','敷金・礼金'],
+    ['確定拠出年金','大殺界','西洋哲学','中性脂肪','学歴社会','縄文土器','敷金・礼金','コールオプション','東証一部上場企業',
+      '眼精疲労','新卒一括採用']
   ];
 
 
@@ -27,7 +29,13 @@
     for (i=0; i< panels.length; i++){
     panels[i].addEventListener('click',function(){
         clearTimeout(timers[this.dataset.index]);
-
+        stopCount++;
+        this.className = 'panel';
+        if (stopCount === panels.length) {
+          stopCount = 0;
+          // checkResults();
+          spin.className = '';
+        }
       });
     }
   }
@@ -37,6 +45,11 @@
     runSlot(0);
     runSlot(1);
     runSlot(2);
+    this.className = 'inactive';
+    panels[0].className = "panel inactive"
+    panels[1].className = "panel inactive"
+    panels[2].className = "panel inactive"
+    
   })();
 
   })();
