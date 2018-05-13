@@ -5,6 +5,12 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.title{
+  width: 300px;
+  padding:20px;
+  margin: 15px auto;
+}
+
 .slot {
   width: 300px;
   padding: 20px;
@@ -15,16 +21,8 @@ body {
   overflow: hidden;
 }
 
-.panel {
-  /* float: left; */
-}
-
-.panel + .panel {
-  margin-left: 15px;
-}
-
-.panel img {
-  margin-bottom: 5px;
+.panel p{
+  text-align: center;
 }
 
 .stop {
@@ -46,6 +44,20 @@ body {
   width: 280px;
   height: 35px;
   background: #3498db;
+  box-shadow: 0 3px 0 #2880b9;
+  border-radius: 20px;
+  line-height: 35px;
+  text-align: center;
+  color: #fff;
+  user-select: none;
+  margin: 0 auto;
+}
+
+#stop {
+  cursor: pointer;
+  width: 280px;
+  height: 35px;
+  background: pink;
   box-shadow: 0 3px 0 #2880b9;
   border-radius: 20px;
   line-height: 35px;
