@@ -16,7 +16,7 @@ body {
 }
 
 .panel {
-  float: left;
+  /* float: left; */
 }
 
 .panel + .panel {
