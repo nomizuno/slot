@@ -4,6 +4,7 @@
   var panels = document.getElementsByClassName('panel');
   var spin = document.getElementById('spin');
   var text = document.getElementById('index');
+  var sentence = document.getElementById('sentence');
 
   var timers = [];
   var stopCount = 0;
@@ -33,7 +34,25 @@
    '一般性相対性理論',
    'プライマリーバランス',
    '尊王攘夷運動',
-   '排他的経済水域']
+   '排他的経済水域'];
+
+   var exam =
+   ['自分で作る年金',
+   '悪げな日',
+   '真理を追求するアプローチ',
+   '脂っこいものばかりたべるとね',
+   'わかりやすいから',
+   'どきどき',
+   '部屋はいると渡す',
+   'よくわからん',
+   'メルカリはまだ',
+   'ブルーベルたべよ',
+   '日本だけ',
+   'アインシュタイン',
+   '財政均衡',
+   '天皇万歳',
+   '２００海里'
+ ];
 
 
   function runSlot(n) {
@@ -62,10 +81,11 @@ function runSlot_words(n) {
         if (stopCount === panels.length) {
           stopCount = 0;
           text.className = '';
-
+          sentence.className = '';
           text.children[0].innerHTML = words[index];
-          // checkResults();
           spin.className = '';
+          sentence.children[0].innerHTML = exam[index];
+
         }
       });
     }
@@ -79,6 +99,7 @@ function runSlot_words(n) {
     runSlot_words(2);
     this.className = 'hide';
     text.className = 'hide';
+    sentence.className = 'hide';
     panels[0].className = "panel"
     panels[1].className = "panel"
     panels[2].className = "panel"
