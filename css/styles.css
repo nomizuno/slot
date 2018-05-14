@@ -67,3 +67,7 @@ body {
 .inactive {
   opacity: 0.5;
 }
+
+.hide {
+  display:none;
+}
