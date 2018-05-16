@@ -5,7 +5,8 @@
   var spin = document.getElementById('spin');
   var text = document.getElementById('index');
   var sentence = document.getElementById('sentence');
-  var comment = document.getElementById('comment')
+  var comment = document.getElementById('comment');
+  var button = document.getElementById('button');
 
   var timers = [];
   var stopCount = 0;
@@ -13,7 +14,7 @@
 
   var cards = [
     ['豊満な肢体の','ほとばしる情念の','吐出する情欲の','鮮やかな桃色の','粘膜同士の','快楽の果ての','いやらしい匂いの','はち切れそうなワイシャツの',
-     '艶やかな'],
+     '艶めく','抑えきれない衝動の'],
 
     ['谷間からこぼれ落ちる','禁じられた','許されざる','アワビのような','蜜のような','肉体を置き去りにする','悶絶する','倒錯する','グラマラスな',
   '芳しい','ふしだらな','たわやかな','生暖かい'],
@@ -38,12 +39,12 @@
    '排他的経済水域'];
 
    var exam =
-   ['自分で作る年金',
-   '悪げな日',
-   '真理を追求するアプローチ',
-   '脂っこいものばかりたべるとね',
-   'わかりやすいから',
-   'どきどき',
+   ['自分で作る年金。現役時代に掛金を納め、自身で運用し、損益が反映されたものが老後の受給額として支払われる。個人型、企業型がある。',
+   '六星占術でよくないとされる運気の流れ。運命盤の運気のうち「陰影」、「停止」、「減退」があてはまる。宿命大殺界というとてつもなくやばそうな時期もあるらしい。',
+   '真理を論理的に追求する。古い常識を疑い、新しい価値観、世界観を創造する学問。',
+   '体を動かすエネルギー源となるが、使われなかった分は皮膚の下の脂肪組織や肝臓に蓄えられる。蓄えられる場所によって皮下脂肪、内臓脂肪とよばれる。内臓脂肪は生活習慣病気を引き起こす原因となる。',
+   '学歴が職業、所得、社会的地位を決定する度合いが強い社会。学歴が人の能力を表すとは限らないが、これに文句をいっている暇があったら何かしらで成果を出しなさい。',
+   '縄文時代に作られた土器。砕く、煮る。',
    '部屋はいると渡す',
    'よくわからん',
    'メルカリはまだ',
@@ -83,13 +84,18 @@ function runSlot_words(n) {
           stopCount = 0;
           comment.className = 'comment';
           text.innerHTML = words[index];
-          spin.className = '';
+          button.className = '';
           sentence.innerHTML = exam[index];
 
         }
       });
     }
   }
+
+  runSlot(0);
+  runSlot(1);
+  runSlot_words(2);
+
   initPanel();
 
   spin.addEventListener('click', function() {
@@ -97,7 +103,7 @@ function runSlot_words(n) {
     runSlot(0);
     runSlot(1);
     runSlot_words(2);
-    this.className = 'hide';
+    button.className = 'hide';
     comment.className = 'comment hide';
 
     panels[0].className = "panel"
@@ -105,5 +111,13 @@ function runSlot_words(n) {
     panels[2].className = "panel"
 
   })();
+
+  twttr.widgets.createShareButton(
+  'https://dev.twitter.com/',
+  document.getElementById('container'),
+  {
+    text: 'Hello World'
+  }
+);
 
   })();
