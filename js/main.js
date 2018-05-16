@@ -5,6 +5,7 @@
   var spin = document.getElementById('spin');
   var text = document.getElementById('index');
   var sentence = document.getElementById('sentence');
+  var comment = document.getElementById('comment')
 
   var timers = [];
   var stopCount = 0;
@@ -80,11 +81,10 @@ function runSlot_words(n) {
         this.className = 'panel';
         if (stopCount === panels.length) {
           stopCount = 0;
-          text.className = '';
-          sentence.className = '';
-          text.children[0].innerHTML = words[index];
+          comment.className = 'comment';
+          text.innerHTML = words[index];
           spin.className = '';
-          sentence.children[0].innerHTML = exam[index];
+          sentence.innerHTML = exam[index];
 
         }
       });
@@ -98,8 +98,8 @@ function runSlot_words(n) {
     runSlot(1);
     runSlot_words(2);
     this.className = 'hide';
-    text.className = 'hide';
-    sentence.className = 'hide';
+    comment.className = 'comment hide';
+
     panels[0].className = "panel"
     panels[1].className = "panel"
     panels[2].className = "panel"

@@ -1,6 +1,7 @@
 body {
   background-image: url("../img/sexy.jpg");
   background-size:auto;
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','Yu Gothic','メイリオ','ＭＳ Ｐゴシック','MS PGothic'
 }
 
 
@@ -30,6 +31,32 @@ body {
   overflow: hidden;
 }
 
+#comment{
+  width: 600px;
+  padding: 20px;
+  background: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+#comment .topic{
+    font-size: 2em;
+    background: 	#FF99FF;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+#comment .exam{
+  padding: 15px 20px;
+  font-size: 2em;
+}
+
+
+
 .panel{
   cursor: pointer;
   font-size: 40px;
@@ -46,8 +73,8 @@ body {
   cursor: pointer;
   width: 280px;
   height: 60px;
-  background: #3498db;
-  box-shadow: 0 3px 0 #2880b9;
+  background: pink;
+  box-shadow: 0 3px 0 #FF66FF;
   border-radius: 20px;
   line-height: 35px;
   text-align: center;
