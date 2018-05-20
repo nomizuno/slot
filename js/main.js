@@ -93,9 +93,12 @@ function runSlot_words(n) {
     var i;
     for (i=0; i< panels.length; i++){
     panels[i].addEventListener('click',function(){
+      if (this.className.indexOf('inactive') !== -1) {
+        return;
+      }
         clearTimeout(timers[this.dataset.index]);
         stopCount++;
-        this.className = 'panel';
+        this.className = 'panel inactive';
         if (stopCount === panels.length) {
           stopCount = 0;
           comment.className = 'comment';
